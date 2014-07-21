@@ -1,6 +1,6 @@
 //
 //  NSArray+Helpers.h
-//  EasyCarClub
+//  Ocasta Studios
 //
 //  Created by Chris Birch on 06/05/2014.
 //  Copyright (c) 2014 OcastaStudios. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  NSString+OSDate.m
-//  EasyCarClub
+//  Ocasta Studios
 //
 //  Created by Chris Birch on 30/01/2014.
 //  Copyright (c) 2014 OcastaStudios. All rights reserved.
@@ -10,10 +10,9 @@
 
 
 #define OS_SHORT_DATE_STRING @"dd-MM-yy HH:mm"
-#define OS_SLID_DATE_STRING @"d MMM yy - HH:mm"
-#define OS_SLID2_DATE_STRING @"d MMMM yyyy"
 
-#define OS_EASY_DATE @"yyyy-MM-dd"
+
+#define OS_DATE @"yyyy-MM-dd"
 
 
 @implementation NSString (OSDate)
@@ -39,11 +38,8 @@ static NSDateFormatter* dateFormatter=nil;
 
 -(NSDate *)dateFromddMMyy
 {
-    return [self dateFromString:self withFormatString:OS_EASY_DATE];
+    return [self dateFromString:self withFormatString:OS_DATE];
 }
 
--(NSDate *)dateFromSlidDateTimeString
-{
-    return [self dateFromString:self withFormatString:OS_SLID_DATE_STRING];
-}
+
 @end
