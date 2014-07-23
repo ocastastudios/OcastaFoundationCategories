@@ -26,4 +26,27 @@
  */
 @property(nonatomic,readonly) NSDate*firstDayOfWeek;
 
+
+/**
+ * Returns YES if the current date falls between the two specified dates.
+ * Dates do not have to be in the correct order.
+ */
+-(BOOL)isBetweenDate1:(NSDate*)date1 andDate2:(NSDate*)date2;
+
+/**
+ * Date representing the last hour of the day i.e 23:59:59
+ */
+@property (nonatomic,readonly) NSDate* lastTimeOfDay;
+
+/**
+ * Date representing the first hour of the day i.e 00:00:00
+ */
+@property (nonatomic,readonly) NSDate* firstTimeOfDay;
+
+/**
+ * Returns YES if the specified day is the same day as the current instance
+ */
+-(BOOL)isSameDay:(NSDate*)day;
+
+
 @end

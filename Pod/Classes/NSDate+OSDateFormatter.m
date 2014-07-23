@@ -76,4 +76,57 @@ static NSDateFormatter* dateFormatter=nil;
     return [self dateRelativeToDayOfWeek: 1];
 }
 
+
+
+-(BOOL)isBetweenDate1:(NSDate*)date1 andDate2:(NSDate*)date2
+{
+    NSDate* date = self;
+    
+    NSTimeInterval dateSeconds = date.timeIntervalSince1970;
+    NSTimeInterval date1Seconds = date1.timeIntervalSince1970;
+    NSTimeInterval date2Seconds = date2.timeIntervalSince1970;
+    
+    
+    NSTimeInterval startDateSeconds = MIN(date1Seconds, date2Seconds);
+    NSTimeInterval endDateSeconds = MAX(date1Seconds, date2Seconds);
+    
+    return dateSeconds >= startDateSeconds && dateSeconds <= endDateSeconds;
+}
+
+-(NSDate *)firstTimeOfDay
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSMonthCalendarUnit | NSYearCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:self];
+    
+    [components setHour:0];
+    [components setMinute:0];
+    
+    return [calendar dateFromComponents:components];
+}
+
+-(NSDate *)lastTimeOfDay
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSMonthCalendarUnit | NSYearCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit) fromDate:self];
+    
+    [components setHour:23];
+    [components setMinute:59];
+    [components setSecond:59];
+    
+    return [calendar dateFromComponents:components];
+}
+
+-(BOOL)isSameDay:(NSDate *)day
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSMonthCalendarUnit | NSYearCalendarUnit | NSDayCalendarUnit) fromDate:self];
+    
+    NSDate* date = [calendar dateFromComponents:components];
+    
+    return date.timeIntervalSince1970 == self.timeIntervalSince1970;
+    
+    
+}
+
+
 @end
