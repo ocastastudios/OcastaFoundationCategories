@@ -51,7 +51,6 @@ static NSDateFormatter* dateFormatter=nil;
 }
 
 
-<<<<<<< HEAD
 /**
  * Returns the date relative to week. Pass 1 for the 1st day of the week, 7 for the last day
  */
@@ -76,6 +75,4 @@ static NSDateFormatter* dateFormatter=nil;
     return [self dateRelativeToWeek:dateInWeek day: 1];
 }
 
-=======
->>>>>>> 9951211e6f013a94506a82a4bb5f0969acfa5964
 @end
