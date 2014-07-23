@@ -16,5 +16,13 @@
 @property (nonatomic,readonly) NSString* dateTimeDD_MM_YY_HH_MM;
 
 
+/**
+ * Returns the date relative to week. Pass 1 for the 1st day of the week, 7 for the last day
+ */
+-(NSDate*)dateRelativeToWeek:(NSDate*)dateInWeek day:(NSUInteger)day;
 
+/**
+ * Returns the first day of the week for the week specified.
+ */
+-(NSDate*)firstDayOfWeek:(NSDate*)dateInWeek;
 @end

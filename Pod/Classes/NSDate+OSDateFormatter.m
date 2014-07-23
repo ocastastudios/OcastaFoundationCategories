@@ -51,4 +51,28 @@ static NSDateFormatter* dateFormatter=nil;
 }
 
 
+/**
+ * Returns the date relative to week. Pass 1 for the 1st day of the week, 7 for the last day
+ */
+-(NSDate*)dateRelativeToWeek:(NSDate*)dateInWeek day:(NSUInteger)day
+{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSInteger weekNumber =  [[calendar components: NSWeekCalendarUnit fromDate:weekDate] dateInWeek];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSDateComponents *comp = [gregorian components:NSYearCalendarUnit fromDate:dateInWeek];
+    [comp setWeek:weekNumber];  //Week number.
+    [comp setWeekday:day]; //First day of the week. Change it to 7 to get the last date of the week
+    
+    NSDate *resultDate = [gregorian dateFromComponents:comp];
+    
+    return resultDate;
+}
+
+-(NSDate*)firstDayOfWeek:(NSDate*)dateInWeek
+{
+    return [self dateRelativeToWeek:dateInWeek day: 1];
+}
+
 @end
