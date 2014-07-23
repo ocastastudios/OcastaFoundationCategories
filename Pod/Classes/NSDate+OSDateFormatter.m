@@ -57,7 +57,7 @@ static NSDateFormatter* dateFormatter=nil;
 -(NSDate*)dateRelativeToWeek:(NSDate*)dateInWeek day:(NSUInteger)day
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSInteger weekNumber =  [[calendar components: NSWeekCalendarUnit fromDate:weekDate] dateInWeek];
+    NSInteger weekNumber =  [[calendar components: NSWeekCalendarUnit fromDate:dateInWeek] week];
     
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     
